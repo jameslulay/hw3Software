@@ -1,0 +1,155 @@
+
+<!-- James Lulay -->
+<!-- Prof Tribelhorn, Software Engineering -->
+<!-- 1/25/2023 -->
+<!-- Homework 1 HTML cheesecake project. -->
+<!-- Modified for HW 2 electric boogaloo. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<h1>Cheesecake Order Form</h1>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/lulay21hw1css.css">
+    <title>lulay21hw1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+    </script>
+
+</head>
+
+<body>
+    <!-- The Cheesecake photos put side by side. -->
+    <div class="parent1">
+        <div class="child photo">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg"
+                width="250" height="250">
+        </div>
+        <div class="child photo">
+
+            <img src="https://thumbs.dreamstime.com/z/chef-cat-holds-crystal-tray-piece-cheesecake-white-background-cat-cook-cheesecake-120390604.jpg" width="250"
+                height="250">
+        </div>
+    </div>
+    
+    <!-- A prompt asking for the order that the customer wants.-->
+
+    <!-- The dropdown menu(select) for number of cakes, and the type(radio), placed side by side.-->
+    <div class='parent2'>
+        <!-- # of Cakes -->
+        <div class='child inline-block-child'>
+            <p id="p1">Quantity</p>
+            <select id="numcakes">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+        <div class='child inline-block-child'>
+        <p id="p2">Topping</p>
+        <!-- Type of cake(pick one) -->
+            <form id="toppingForm">
+                <input type="radio" id="Plain" name="toppingType" value="Plain">
+                <label for="Plain">Plain</label><br>
+                <input type="radio" id="Cherry" name="toppingType" value="Cherry">
+                <label for="Cherry">Cherry</label><br>
+                <input type="radio" id="Chocolate" name="toppingType" value="Chocolate">
+                <label for="Chocolate">Chocolate</label><br><br>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Special Instructions Box. -->
+    <form>
+        <textarea id="textBox" name="textBox" rows="4" cols="50">
+            Place Special Instructions here. If none, please type "none"
+        </textarea>
+    </form>
+
+    <!-- Submit Order Box. After order is placed, Order summary is shown.-->
+    <button id="Order">Place Order</button>
+    <p id="OrderSummary"></p>
+
+    <!-- Creates warning if the word "vegan" is typed. Also doesn't show the topping selected. -->
+    <!-- WARNING**** : Bug warning: The user must type something in the box in order for the order to be placed. Dunno why.-->
+
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            var txtbox_1 = $('#textBox');
+            // Setup the event
+            txtbox_1.focusout(function () {
+                //var last = $.data(txtbox_1, "last");
+                if ($(this).val().match("vegan"))
+                    alert("Warning: Cheesecake contains Dairy.");
+                else{
+                    //Hides a buncha stuff.
+                    $("#Order").hide();
+                    $("#textBox").hide();
+                    $("#textBox").hide();
+                    $("#numcakes").hide();
+                    $("#toppingForm").hide();
+                    $("#id1").hide();
+                    $("#id2").hide();
+                    //Sets up the dialoge to report after an order is submitted.
+                    var topping = $('input[name="toppingType"]:checked').val();
+                    var Quantity =  $("#numcakes").val();
+                    var Instructions = $ ("#textBox").val();
+                    var DisplayTxt = "Order placed! Quantity:" + Quantity + "  __Topping Selected:" + topping + "  __Special Instructions:" + Instructions;
+                    $("#OrderSummary").text(DisplayTxt).show();
+                }
+            });
+        });
+
+
+         //Bug: if ANY button is hit, is does this. How do i fix?
+        //This script detects when a dropdown button is selected. When it is, it sets the text of the main box to that month.
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                document.getElementById("dropFace").innerHTML = this.innerHTML;
+            });
+        });
+    </script>
+    -->
+
+    <script src="javascripts/index.js">
+
+    </script>
+
+   <!--  Display Past Orders Statistics. Creates the hoverable drop down menu.-->
+    <div class="box">Total For the month of:</div>
+
+    <div class="dropdown">
+        <button id="dropFace" class="dropbtn">Jan</button>
+        <div id="testd2" class="dropdown-content" onclick="selectMonth()">
+            <button class="btn">Jan</button>
+            <button class="btn">Feb</button>
+            <button class="btn">Mar</button>
+            <button class="btn">Apr</button>
+            <button class="btn">May</button>
+            <button class="btn">Jun</button>
+            <button class="btn">Jul</button>
+            <button class="btn">Aug</button>
+            <button class="btn">Sep</button>
+            <button class="btn">Oct</button>
+            <button class="btn">Nov</button>
+            <button class="btn">Dec</button>
+        </div>
+    </div>
+
+    
+   <!-- Sales Statistics. -->
+    <ul>
+        <li>11 Cherry</li>
+        <li>17 Chocolate</li>
+        <li>31 Plain</li>
+    </ul>
+</body>
+</html>
