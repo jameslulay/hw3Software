@@ -69,13 +69,13 @@
     
     <!-- Special Instructions Box. -->
     <form>
-        <textarea id="textBox" name="textBox" rows="4" cols="50">
+        <textarea id="textBox" name="textBox" rows="4" cols="50" onclick="reduceBox()">
             Place Special Instructions here. If none, please type "none"
         </textarea>
     </form>
 
     <!-- Submit Order Box. After order is placed, Order summary is shown.-->
-    <button id="Order">Place Order</button>
+    <button id="Order" onclick="reduceBox()">Place Order</button>
     <p id="OrderSummary"></p>
 
     <!-- Creates warning if the word "vegan" is typed. Also doesn't show the topping selected. -->
@@ -119,9 +119,10 @@
     </script>
     -->
 
-    <script src="javascripts/index.js">
+    <script src="javascripts/focusOut.js">
 
     </script>
+    
 
    <!--  Display Past Orders Statistics. Creates the hoverable drop down menu.-->
     <div class="box">Total For the month of:</div>

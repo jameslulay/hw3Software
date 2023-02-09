@@ -1,13 +1,14 @@
 $(document).ready(function () {
     var txtbox_1 = $('#textBox');
     // Setup the event
-    txtbox_1.focusout(function () {
+
+    function placeOrder() {
         //var last = $.data(txtbox_1, "last");
-        if ($(this).val().match("vegan"))
+        if ($('#textBox').val().match("vegan"))
             alert("Warning: Cheesecake contains Dairy.");
         else{
             //Hides a buncha stuff.
-            $("#Order").hide();
+            $(this).hide();
             $("#textBox").hide();
             $("#textBox").hide();
             $("#numcakes").hide();
@@ -21,16 +22,17 @@ $(document).ready(function () {
             var DisplayTxt = "Order placed! Quantity:" + Quantity + "  __Topping Selected:" + topping + "  __Special Instructions:" + Instructions;
             $("#OrderSummary").text(DisplayTxt).show();
         }
-    });
-
-    $(".btn").click(function(){
-        document.getElementById("dropFace").innerHTML = this.innerHTML;
-    });
-});
-
-
- //Bug: if ANY button is hit, is does this. How do i fix?
-//This script detects when a dropdown button is selected. When it is, it sets the text of the main box to that month.
-//$(document).ready(function(){
+    }
     
-//});
+    $('#Order').click(placeOrder);
+
+    function changeMonth(){
+        document.getElementById("dropFace").innerHTML = this.innerHTML;
+    }
+    
+
+    $('.btn').click(changeMonth);
+
+
+
+});
